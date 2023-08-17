@@ -1,3 +1,5 @@
+import Navbar from "@/components/Navbar";
+
 export const metadata = {
   title: "TechStore",
   description: "Best tech store!",
@@ -6,7 +8,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
