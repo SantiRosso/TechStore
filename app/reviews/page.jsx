@@ -1,3 +1,5 @@
+import ReviewCard from "@/components/ReviewCard";
+
 async function loadReviws() {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
     const data = await res.json()
@@ -14,11 +16,7 @@ const Reviews = async () => {
             {
                 reviews.map((review) => {
                     return(
-                        <div key={review.id}>
-                            <h4>User: </h4> <p>{review.userId}</p>
-                            <h4>{review.title}</h4>
-                            <p>{review.body}</p>
-                        </div>
+                        <ReviewCard key={review.id} review={review}/>
                     )
                 })
             }
