@@ -16,13 +16,15 @@ const Reviews = async () => {
     return(
         <div>
             <h1>Reviews</h1>
-            {
-                reviews.map((review) => {
-                    return(
-                        <ReviewCard key={review.id} review={review}/>
-                    )
-                })
-            }
+            <div className="grid grid-cols-3 p-3 gap-3">
+                {
+                    reviews.map((review) => {
+                        return(
+                            <ReviewCard key={review.id} review={review}/>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

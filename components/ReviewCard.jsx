@@ -9,7 +9,7 @@ const ReviewCard = ({ review }) => {
     }
 
     return(
-        <div>
+        <div className="border-2 rounded-md border-stone-500 p-2">
             <h4>User: </h4> <p>{review.userId}</p>
             <h4>{review.title}</h4>
             <p>{review.body}</p>
