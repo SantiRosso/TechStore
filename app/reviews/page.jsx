@@ -15,8 +15,7 @@ const Reviews = async () => {
 
     return(
         <div>
-            <h1>Reviews</h1>
-            <div className="grid grid-cols-3 p-3 gap-3">
+            <div className="grid grid-cols-3 p-5 gap-3">
                 {
                     reviews.map((review) => {
                         return(

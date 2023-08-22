@@ -12,13 +12,12 @@ const ReviewPage = async ({params}) => {
 
     const review = await loadPost(id)
     return(
-        <div>
-            <h1>Review Page</h1>
-            <h2>User: {review.userId}</h2>
-            <h4>{review.title}</h4>
-            <p>{review.body}</p>
-
-            <hr />
+        <div className="p-5">
+            <div className="border-2 rounded-md border-stone-500 p-2">
+                <h2>User: {review.userId}</h2>
+                <h4>{review.title}</h4>
+                <p>{review.body}</p>
+            </div>
 
             <h3>Other reviews</h3>
             <Suspense fallback={<div>Loading reviews</div>}> 
