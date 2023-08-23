@@ -10,6 +10,9 @@ const Admin = () => {
             <Link href='/admin/statistics'>
                 <button>Statistics</button>
             </Link>
+            <Link href='/admin/users'>
+                <button>Users</button>
+            </Link>
         </div>
     )
 }
