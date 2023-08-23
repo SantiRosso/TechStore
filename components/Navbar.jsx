@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 
 const Navbar = () => {
 
-    const route = useRouter()
+    const router = useRouter()
 
     const handleClick = () => {
-        route.push("/")
+        router.push("/")
     }
 
     return(
