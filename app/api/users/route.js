@@ -25,11 +25,3 @@ export const POST = async (request) => {
   // console.log(data);
   return NextResponse.json({ users: "Esto es un POST de 'users'." });
 };
-
-export const PUT = () => {
-  return NextResponse.json({ users: "Esto es un PUT de 'users'." });
-};
-
-export const DELETE = () => {
-  return NextResponse.json({ users: "Esto es un DELETE de 'users'." });
-};

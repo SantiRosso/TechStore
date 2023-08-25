@@ -1,17 +1,21 @@
 import { NextResponse } from "next/server";
+import { prisma } from "@/libs/prisma";
 
-export const GET = () => {
-  return NextResponse.json({ reviews: "Este es un GET de reviews" });
+export const GET = async () => {
+  const reviews = await prisma.review.findMany();
+  console.log(reviews);
+  return NextResponse.json(reviews);
 };
 
-export const POST = () => {
-  return NextResponse.json({ reviews: "Este es un POST de reviews" });
-};
+export const POST = async (request, { params }) => {
+  const { title, description } = await request.json();
 
-export const PUT = () => {
-  return NextResponse.json({ reviews: "Este es un PUT de reviews" });
-};
-
-export const DELETE = () => {
-  return NextResponse.json({ reviews: "Este es un DELETE de reviews" });
+  return NextResponse.json(
+    await prisma.review.create({
+      data: {
+        title: title,
+        description: description,
+      },
+    })
+  );
 };
