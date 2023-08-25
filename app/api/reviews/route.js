@@ -13,8 +13,8 @@ export const POST = async (request, { params }) => {
   return NextResponse.json(
     await prisma.review.create({
       data: {
-        title: title,
-        description: description,
+        title,
+        description,
       },
     })
   );
