@@ -2,7 +2,9 @@ import ReviewCard from "@/components/ReviewCard";
 import CreateReview from "@/components/CreateReview"
 
 async function loadReviws() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const res = await fetch('http://localhost:3000/api/reviews',{
+        method: 'GET'
+    })
     const data = await res.json()
 
     await new Promise((resolve) => setTimeout(resolve, 3000)) 

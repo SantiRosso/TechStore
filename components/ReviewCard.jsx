@@ -4,17 +4,13 @@ import Link from "next/link";
 
 const ReviewCard = ({ review }) => {
 
-    const handleClick = () => {
-
-    }
-
     return(
         <div className="border-2 rounded-md border-stone-500 p-2">
-            <h4>User: </h4> <p>{review.userId}</p>
-            <h4>{review.title}</h4>
-            <p>{review.body}</p>
+            {/* <h4>User: </h4> <p>{review.userId}</p> */}
+            <h4 className="font-bold">{review.title}</h4>
+            <p>{review.description}</p>
             <Link href={`/reviews/${review.id}`}>
-                <button onClick={handleClick}>click</button>
+                <button className="border-stone-500 rounded bg-slate-100 text-stone-500">Detail</button>
             </Link>
         </div>
     )
