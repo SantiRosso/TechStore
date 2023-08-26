@@ -1,4 +1,5 @@
 import ReviewCard from "@/components/ReviewCard";
+import CreateReview from "@/components/CreateReview"
 
 async function loadReviws() {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -15,6 +16,7 @@ const Reviews = async () => {
 
     return(
         <div>
+            <CreateReview/>
             <div className="grid grid-cols-3 p-5 gap-3">
                 {
                     reviews.map((review) => {

@@ -13,20 +13,15 @@ export const GET = async (request, { params }) => {
 
 export const PUT = async (request, { params }) => {
   try {
-    const { title, description } = await request.json();
-    await prisma.review.update({
+    const data = await request.json();
+    const reviewUpdated = await prisma.review.update({
       where: {
         id: Number(params.id),
       },
-      data: {
-        title,
-        description,
-      },
+      data: data,
     });
 
-    return NextResponse.json({
-      review: `Este es un PUT de 'review' ${params.id}`,
-    });
+    return NextResponse.json(reviewUpdated);
   } catch (error) {
     return NextResponse.json(error.message);
   }
