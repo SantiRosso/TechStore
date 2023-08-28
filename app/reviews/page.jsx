@@ -3,12 +3,10 @@ import CreateReview from "@/components/CreateReview"
 
 async function loadReviws() {
     const res = await fetch('http://localhost:3000/api/reviews',{
-        method: 'GET'
+        method: 'GET',
+        headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'}
     })
     const data = await res.json()
-
-    await new Promise((resolve) => setTimeout(resolve, 3000)) 
-
     return data;
 }
 

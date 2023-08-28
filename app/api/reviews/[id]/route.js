@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/libs/prisma";
+import prisma from "@/libs/prisma";
 
 export const GET = async (request, { params }) => {
   const review = await prisma.review.findUnique({
@@ -8,7 +8,11 @@ export const GET = async (request, { params }) => {
     },
   });
 
-  return NextResponse.json(review);
+  return NextResponse.json(review, {
+    headers: {
+      "Cache-Control": "no-cache",
+    },
+  });
 };
 
 export const PUT = async (request, { params }) => {
