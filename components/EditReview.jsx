@@ -24,6 +24,12 @@ const EditReview = ({review}) => {
         router.push("/")
     }
 
+    const handleDelete = async () => {
+        const res = await fetch(`/api/reviews/${review.id}`, {
+            method: 'DELETE',
+        })
+    }
+
     return(
         <div className="flex flex-col justify-center items-center">
             <h1>Edit Review</h1>
@@ -36,6 +42,10 @@ const EditReview = ({review}) => {
 
                 <button type="submit" className="bg-stone-500 hover:bg-stone-700 text-white font-bold py-2 px-4 rounded">
                     Edit
+                </button>
+
+                <button onClick={handleDelete} className="bg-red-500 hover:bg-stone-700 text-white font-bold py-2 px-4 rounded">
+                    Delete
                 </button>
             </form>
         </div>

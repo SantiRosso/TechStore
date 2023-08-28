@@ -3,7 +3,7 @@ import ReviewCard from "@/components/ReviewCard";
 import CreateReview from "@/components/CreateReview"
 import { useEffect, useState } from "react";
 
-async function loadReviws() {
+async function loadReviews() {
     const res = await fetch('http://localhost:3000/api/reviews',{
         method: 'GET',
         headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'}
@@ -15,7 +15,7 @@ async function loadReviws() {
 const Reviews = () => {
     const [reviews, setReviews] = useState()
     useEffect(() => {
-        loadReviws()
+        loadReviews()
         .then(res => setReviews(res))
     }, [])
 
