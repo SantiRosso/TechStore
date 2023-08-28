@@ -1,18 +1,32 @@
+'use client'
 import EditReview from "@/components/EditReview"
+import { useEffect, useState } from "react"
 
 
-const EditRev = async ({params}) => {
+const EditRev = ({params}) => {
+    
+    
 
-    const res = await fetch(`http://localhost:3000/api/reviews/${params.id}`, {
-        method: 'GET',
-        headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'}
+    const [review, setReview] = useState()
+
+    useEffect(() => {
+        const getReview = async () => {
+            const res = await fetch(`http://localhost:3000/api/reviews/${params.id}`, {
+                method: 'GET',
+                headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'}
+            })
+            setReview(await res.json()) 
+
+        }
+        getReview()
     })
-    const review = await res.json()
 
     return(
         <div>
             <h1>Edit</h1>
-            <EditReview review={review}/>
+            {
+                review && <EditReview review={review}/>
+            }
         </div>
     )
 }

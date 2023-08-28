@@ -1,5 +1,7 @@
+'use client'
 import ReviewCard from "@/components/ReviewCard";
 import CreateReview from "@/components/CreateReview"
+import { useEffect, useState } from "react";
 
 async function loadReviws() {
     const res = await fetch('http://localhost:3000/api/reviews',{
@@ -10,16 +12,19 @@ async function loadReviws() {
     return data;
 }
 
-const Reviews = async () => {
-
-    const reviews = await loadReviws()
+const Reviews = () => {
+    const [reviews, setReviews] = useState()
+    useEffect(() => {
+        loadReviws()
+        .then(res => setReviews(res))
+    }, [])
 
     return(
         <div>
             <CreateReview/>
             <div className="grid grid-cols-3 p-5 gap-3">
                 {
-                    reviews.map((review) => {
+                    reviews?.map((review) => {
                         return(
                             <ReviewCard key={review.id} review={review}/>
                         )

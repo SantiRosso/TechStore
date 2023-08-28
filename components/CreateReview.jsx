@@ -19,6 +19,7 @@ const CreateReview = () => {
         })
 
         // const data = await res.json();
+        router.refresh()
         router.push("/")
     }
 

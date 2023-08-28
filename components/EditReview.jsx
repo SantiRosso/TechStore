@@ -20,6 +20,7 @@ const EditReview = ({review}) => {
         })
 
         // const data = await res.json();
+        router.refresh()
         router.push("/")
     }
 
@@ -28,10 +29,10 @@ const EditReview = ({review}) => {
             <h1>Edit Review</h1>
             <form onSubmit={onSubmit} className="bg-gray-400 p-10">
                 <label htmlFor="title" className="font-bold">Title</label>
-                <input id="title" type="text" defaultValue={review.title} className="border border-gray-400 p-2 mb-4 w-full text-black"/>
+                <input id="title" type="text" defaultValue={review?.title} className="border border-gray-400 p-2 mb-4 w-full text-black"/>
 
                 <label htmlFor="description" className="font-bold">Description</label>
-                <textarea id="description" defaultValue={review.description} name="" cols="30" rows="10" className="border border-gray-400 p-2 mb-4 w-full text-black"></textarea>
+                <textarea id="description" defaultValue={review?.description} name="" cols="30" rows="10" className="border border-gray-400 p-2 mb-4 w-full text-black"></textarea>
 
                 <button type="submit" className="bg-stone-500 hover:bg-stone-700 text-white font-bold py-2 px-4 rounded">
                     Edit
