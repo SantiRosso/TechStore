@@ -1,4 +1,5 @@
 import Reviews from "@/app/reviews/page";
+import EditReview from "@/components/EditReview"
 import { Suspense } from 'react'
 
 const loadPost = async (id) => {
@@ -17,7 +18,13 @@ const ReviewPage = async ({params}) => {
                 {/* <h2>User: {review.userId}</h2> */}
                 <h4>{review.title}</h4>
                 <p>{review.description}</p>
+                <p>{new Date(review.createdAt).toLocaleDateString()}</p>
             </div>
+
+            <h1>Edit</h1>
+            {
+                review && <EditReview review={review}/>
+            }
 
             <h3>Other reviews</h3>
             <Suspense fallback={<div>Loading reviews</div>}> 

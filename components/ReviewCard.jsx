@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link";
 
 const ReviewCard = ({ review }) => {
@@ -9,9 +8,11 @@ const ReviewCard = ({ review }) => {
             {/* <h4>User: </h4> <p>{review.userId}</p> */}
             <h4 className="font-bold">{review.title}</h4>
             <p>{review.description}</p>
+            <p>{new Date(review.createdAt).toLocaleDateString()}</p>
             <Link href={`/reviews/${review.id}`}>
                 <button className="border-stone-500 rounded bg-slate-100 text-stone-500">Detail</button>
             </Link>
+            
         </div>
     )
 }
