@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 const ReviewPage = ({params}) => {
     const id = params.id 
     async function getReview() {
-        const res = await fetch(`http://localhost:3000/api/reviews/${id}`)
+        const res = await fetch(`techstoreapp.vercel.app/api/reviews/${id}`)
         const data = res.json()
         return data
     }

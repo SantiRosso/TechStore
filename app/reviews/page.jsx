@@ -4,13 +4,17 @@ import CreateReview from "@/components/CreateReview"
 import { useEffect, useState } from "react";
 
 async function loadReviews() {
-    const res = await fetch('http://localhost:3000/api/reviews',{
+    const res = await fetch('techstoreapp.vercel.app/api/reviews',{
         method: 'GET',
         headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'}
     })
     const data = await res.json()
     return data;
 }
+
+//probar estas dos opciones para el problema del caché 
+// export const dynamic = 'force-dynamic'
+// export const revalidate = 5;
 
 const Reviews = () => {
     const [reviews, setReviews] = useState()
