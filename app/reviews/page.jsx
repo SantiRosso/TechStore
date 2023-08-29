@@ -4,7 +4,7 @@ import CreateReview from "@/components/CreateReview"
 import { useEffect, useState } from "react";
 
 async function loadReviews() {
-    const res = await fetch('techstoreapp.vercel.app/api/reviews',{
+    const res = await fetch('/api/reviews',{
         method: 'GET',
         headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'}
     })
