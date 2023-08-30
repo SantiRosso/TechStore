@@ -1,10 +1,10 @@
-'use client'
 import ReviewCard from "@/components/ReviewCard";
 import CreateReview from "@/components/CreateReview"
-import { useEffect, useState } from "react";
+
+const URL = process.env.URL;
 
 async function loadReviews() {
-    const res = await fetch('/api/reviews',{
+    const res = await fetch(`${URL}/api/reviews`,{
         method: 'GET',
         headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'}
     })
@@ -12,16 +12,10 @@ async function loadReviews() {
     return data;
 }
 
-//probar estas dos opciones para el problema del caché 
-// export const dynamic = 'force-dynamic'
-// export const revalidate = 5;
+export const dynamic = 'force-dynamic'
 
-const Reviews = () => {
-    const [reviews, setReviews] = useState()
-    useEffect(() => {
-        loadReviews()
-        .then(res => setReviews(res))
-    }, [])
+const Reviews = async () => {
+    const reviews = await loadReviews()
 
     return(
         <div>

@@ -1,23 +1,20 @@
-'use client'
 import Reviews from "@/app/reviews/page";
 import EditReview from "@/components/EditReview"
 import { Suspense } from 'react'
-import { useEffect, useState } from "react";
 
+const URL = process.env.URL;
+export const dynamic = 'force-dynamic'
 
-const ReviewPage = ({params}) => {
+async function getReview(id) {
+    const res = await fetch(`${URL}/api/reviews/${id}`)
+    const data = res.json()
+    return data
+}
+
+const ReviewPage = async ({params}) => {
     const id = params.id 
-    async function getReview() {
-        const res = await fetch(`/api/reviews/${id}`)
-        const data = res.json()
-        return data
-    }
-    
-    const [review, setReview] = useState()
-    useEffect(() => {
-        getReview()
-        .then(res => setReview(res))
-    }, [])
+
+    const review = await getReview(id)
 
     return(
         <div className="p-5">
