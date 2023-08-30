@@ -28,6 +28,8 @@ const EditReview = ({review}) => {
         const res = await fetch(`/api/reviews/${review.id}`, {
             method: 'DELETE',
         })
+        router.refresh()
+        router.push("/")
     }
 
     return(

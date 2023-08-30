@@ -12,7 +12,7 @@ async function getReview(id) {
     // return data
     const review = prisma.review.findUnique({
         where: {
-            id
+            id: Number(id)
         }
     })
     return review;
