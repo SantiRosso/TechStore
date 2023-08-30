@@ -1,15 +1,19 @@
 import ReviewCard from "@/components/ReviewCard";
 import CreateReview from "@/components/CreateReview"
+import prisma from "@/libs/prisma";
 
-const URL = process.env.URL;
+// const URL = process.env.URL;
 
 async function loadReviews() {
-    const res = await fetch(`${URL}/api/reviews`,{
-        method: 'GET',
-        headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'}
-    })
-    const data = await res.json()
-    return data;
+    // const res = await fetch(`${URL}/api/reviews`,{
+    //     method: 'GET',
+    //     headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache'}
+    // })
+    // const data = await res.json()
+    // return data;
+
+    const reviews = await prisma.review.findMany()
+    return reviews;
 }
 
 export const dynamic = 'force-dynamic'

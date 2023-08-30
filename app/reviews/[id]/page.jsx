@@ -1,14 +1,21 @@
 import Reviews from "@/app/reviews/page";
 import EditReview from "@/components/EditReview"
 import { Suspense } from 'react'
+import prisma from "@/libs/prisma"
 
-const URL = process.env.URL;
+// const URL = process.env.URL;
 export const dynamic = 'force-dynamic'
 
 async function getReview(id) {
-    const res = await fetch(`${URL}/api/reviews/${id}`)
-    const data = res.json()
-    return data
+    // const res = await fetch(`${URL}/api/reviews/${id}`)
+    // const data = res.json()
+    // return data
+    const review = prisma.review.findUnique({
+        where: {
+            id
+        }
+    })
+    return review;
 }
 
 const ReviewPage = async ({params}) => {
