@@ -1,6 +1,6 @@
 import ReviewCard from "@/components/ReviewCard";
-import CreateReview from "@/components/CreateReview"
 import prisma from "@/libs/prisma";
+import Link from "next/link";
 
 // const URL = process.env.URL;
 
@@ -23,7 +23,9 @@ const Reviews = async () => {
 
     return(
         <div>
-            <CreateReview/>
+            <Link href='/new_eview'>
+                <h6 className="">Create new review</h6>
+            </Link>
             <div className="grid grid-cols-3 p-5 gap-3">
                 {
                     reviews?.map((review) => {

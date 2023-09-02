@@ -32,12 +32,11 @@ const ReviewPage = async ({params}) => {
                 <p>{new Date(review?.createdAt).toLocaleDateString()}</p>
             </div>
 
-            <h1>Edit</h1>
             {
                 review && <EditReview review={review}/>
             }
 
-            <h3>Other reviews</h3>
+            <h3>Other reviews:</h3>
             <Suspense fallback={<div>Loading reviews</div>}> 
                 <Reviews/>
             </Suspense>

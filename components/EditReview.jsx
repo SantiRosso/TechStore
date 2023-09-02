@@ -21,7 +21,7 @@ const EditReview = ({review}) => {
 
         // const data = await res.json();
         router.refresh()
-        router.push("/")
+        router.push("/reviews")
     }
 
     const handleDelete = async () => {
@@ -29,7 +29,7 @@ const EditReview = ({review}) => {
             method: 'DELETE',
         })
         router.refresh()
-        router.push("/")
+        router.push("/reviews")
     }
 
     return(
