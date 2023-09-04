@@ -9,3 +9,22 @@ export const GET = async () => {
     },
   });
 };
+
+export const POST = async (request, { params }) => {
+  const { name, description, stock, image, category } = await request.json();
+  const newProduct = await prisma.prduct.create({
+    data: {
+      name,
+      description,
+      stock,
+      image,
+      category,
+    },
+  });
+
+  return NextResponse.json(newProduct, {
+    headers: {
+      "Cache-Control": "no-cache",
+    },
+  });
+};
