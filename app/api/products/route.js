@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/libs/prisma";
 
 export const GET = async () => {
-  const products = await prisma.products.findMany();
+  const products = await prisma.product.findMany();
   return NextResponse.json(products, {
     headers: {
       "Cache-Control": "no-cache",
@@ -12,7 +12,7 @@ export const GET = async () => {
 
 export const POST = async (request, { params }) => {
   const { name, description, stock, image, category } = await request.json();
-  const newProduct = await prisma.prduct.create({
+  const newProduct = await prisma.product.create({
     data: {
       name,
       description,

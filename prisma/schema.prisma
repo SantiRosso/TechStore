@@ -30,7 +30,7 @@ model Product {
   name        String
   description String
   stock       Int
-  category    Int
+  category    String
   image       String
   createdAt   DateTime @default(now())
 }
